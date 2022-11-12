@@ -20,6 +20,6 @@ const {rgbToHex} = require('clr-convert')
 
 conversion = rgbToHex(114,137,218)
 
-// logs the rgb value
+// logs the hex value
 console.log(conversion)
 ```
