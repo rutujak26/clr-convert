@@ -13,12 +13,51 @@ conversion = hexToRgb('#7289DA')
 // logs the rgb value
 console.log(conversion)
 ```
+### Hex To HSL:
+```js
+const {hexToHsl} = require('clr-convert')
+
+conversion = hexToHsl('#7289DA')
+
+// logs the hsl value
+console.log(conversion)
+```
 
 ### RGB To Hex:
 ```js
 const {rgbToHex} = require('clr-convert')
 
 conversion = rgbToHex(114,137,218)
+
+// logs the hex value
+console.log(conversion)
+```
+
+### RGB To HSL:
+```js
+const {rgbToHsl} = require('clr-convert')
+
+conversion = rgbToHsl(114,137,218)
+
+// logs the hsl value
+console.log(conversion)
+```
+
+### HSL to RGB:
+```js
+const {hslToRgb} = require('clr-convert')
+
+conversion = hslToRgb(114,137,218)
+
+// logs the rgb value
+console.log(conversion)
+```
+
+### HSL to Hex:
+```js
+const {hslToHex} = require('clr-convert')
+
+conversion = hslToHex(114,137,218)
 
 // logs the hex value
 console.log(conversion)
