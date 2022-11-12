@@ -47,7 +47,7 @@ console.log(conversion)
 ```js
 const {hslToRgb} = require('clr-convert')
 
-conversion = hslToRgb(114,137,218)
+conversion = hslToRgb(60,100,93.9)
 
 // logs the rgb value
 console.log(conversion)
@@ -57,7 +57,7 @@ console.log(conversion)
 ```js
 const {hslToHex} = require('clr-convert')
 
-conversion = hslToHex(114,137,218)
+conversion = hslToHex(60, 100, 93.9)
 
 // logs the hex value
 console.log(conversion)
