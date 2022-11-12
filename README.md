@@ -1,9 +1,10 @@
-# clr-convert
+### clr-convert
 Easy way to convert colors!
 
 Just install using `npm install clr-convert`
 
-Hex To RGB:
+### Usage:
+# Hex To RGB:
 ```js
 const {hexToRgb} = require('clr-convert')
 
@@ -13,7 +14,7 @@ conversion = hexToRgb('#7289DA')
 console.log(conversion)
 ```
 
-RGB To Hex:
+# RGB To Hex:
 ```js
 const {rgbToHex} = require('clr-convert')
 
