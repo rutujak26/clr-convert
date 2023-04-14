@@ -1,6 +1,6 @@
 # clr-convert
 
-![Tests](https://github.com/rutujak26/clr-convert/actions/workflows/tests.yml/badge.svg)
+![Tests](https://github.com/rutujak26/clr-convert/actions/workflows/tests.yml/badge.svg) [![](https://data.jsdelivr.com/v1/package/npm/clr-convert/badge)](https://www.jsdelivr.com/package/npm/clr-convert)
 
 Easy way to convert colors!
 
