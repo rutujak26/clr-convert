@@ -1,6 +1,6 @@
 {
   "name": "clr-convert",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "An easy way to convert colors",
   "main": "index.js",
   "scripts": {
