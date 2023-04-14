@@ -1,22 +1,29 @@
 {
   "name": "clr-convert",
-  "version": "1.0.8",
-  "description": "Easy way to convert colors!",
+  "version": "1.0.9",
+  "description": "An easy way to convert colors",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rutujak26/clr-convert.git"
   },
   "keywords": [
-    "color"
+    "color",
+    "convert-color",
+    "color-convert",
+    "conversion",
+    "convert"
   ],
   "author": "rutujak26",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rutujak26/clr-convert/issues"
   },
-  "homepage": "https://github.com/rutujak26/clr-convert#readme"
+  "homepage": "https://github.com/rutujak26/clr-convert#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
 }

@@ -1,1 +1,82 @@
-function hexToRgb(o){return hex=o.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i,function(o,e,r,t){return e+e+r+r+t+t}),(o=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex))?{r:parseInt(o[1],16),g:parseInt(o[2],16),b:parseInt(o[3],16)}:null}function rgbToHex(o,e,r){return"#"+(1<<24|o<<16|e<<8|r).toString(16).slice(1)}function rgbToHsl(o,e,r){o/=255,e/=255,r/=255;let t=Math.min(o,e,r),n=Math.max(o,e,r),b=n-t,a=0,h,s;return a=0==b?0:n==o?(e-r)/b%6:n==e?(r-o)/b+2:(o-e)/b+4,(a=Math.round(60*a))<0&&(a+=360),s=(n+t)/2,h=+(100*(0==b?0:b/(1-Math.abs(2*s-1)))).toFixed(1),s=+(100*s).toFixed(1),{h:a,s:h,l:s}}function hexToHsl(o){return obj=hexToRgb(o),rgbToHsl(parseInt(obj.r),parseInt(obj.g),parseInt(obj.b))}function hslToRgb(o,e,r){e/=100,r/=100;let t=(1-Math.abs(2*r-1))*e,n=t*(1-Math.abs(o/60%2-1)),b=r-t/2,a=0,h=0,s=0;return 0<=o&&o<60?(a=t,h=n,s=0):60<=o&&o<120?(a=n,h=t,s=0):120<=o&&o<180?(a=0,h=t,s=n):180<=o&&o<240?(a=0,h=n,s=t):240<=o&&o<300?(a=n,h=0,s=t):300<=o&&o<360&&(a=t,h=0,s=n),a=Math.round(255*(a+b)),h=Math.round(255*(h+b)),s=Math.round(255*(s+b)),{r:a,g:h,b:s}}function hslToHex(o,e,r){return rgbToHex((obj=hslToRgb(o,e,r)).r,obj.g,obj.b)}module.exports={hexToRgb:hexToRgb,rgbToHex:rgbToHex,rgbToHsl:rgbToHsl,hexToHsl:hexToHsl,hslToRgb:hslToRgb,hslToHex:hslToHex};
+function rgbToHex(r, g, b) {
+  return "#" + [r, g, b].map((c) => c.toString(16).padStart(2, "0")).join("");
+}
+function hexToRgb(hex) {
+  const bigint = parseInt(hex.replace("#", ""), 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return [r, g, b];
+}
+
+function rgbToHsl(r, g, b) {
+  (r /= 255), (g /= 255), (b /= 255);
+  const max = Math.max(r, g, b),
+    min = Math.min(r, g, b);
+  let h,
+    s,
+    l = (max + min) / 2;
+
+  if (max === min) {
+    h = s = 0;
+  } else {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r:
+        h = (g - b) / d + (g < b ? 6 : 0);
+        break;
+      case g:
+        h = (b - r) / d + 2;
+        break;
+      case b:
+        h = (r - g) / d + 4;
+        break;
+    }
+    h /= 6;
+  }
+  return [h, s, l];
+}
+
+function hexToHsl(hex) {
+  const [r, g, b] = hexToRgb(hex);
+  return rgbToHsl(r, g, b);
+}
+function hslToRgb(h, s, l) {
+  let r, g, b;
+
+  if (s === 0) {
+    r = g = b = l;
+  } else {
+    const hue2rgb = (p, q, t) => {
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1 / 6) return p + (q - p) * 6 * t;
+      if (t < 1 / 2) return q;
+      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+      return p;
+    };
+
+    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    const p = 2 * l - q;
+    r = hue2rgb(p, q, h + 1 / 3);
+    g = hue2rgb(p, q, h);
+    b = hue2rgb(p, q, h - 1 / 3);
+  }
+
+  return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+}
+function hslToHex(h, s, l) {
+  const [r, g, b] = hslToRgb(h, s, l);
+  return rgbToHex(r, g, b);
+}
+
+module.exports = {
+  rgbToHex: rgbToHex,
+  hexToRgb: hexToRgb,
+  rgbToHex: rgbToHex,
+  rgbToHsl: rgbToHsl,
+  hexToHsl: hexToHsl,
+  hslToHex: hslToHex,
+  hslToRgb: hslToRgb,
+};

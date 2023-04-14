@@ -1,64 +1,55 @@
 # clr-convert
+
 Easy way to convert colors!
 
 Just install using `npm install clr-convert`
 
 ## Usage:
+
 ### Hex To RGB:
+
 ```js
-const {hexToRgb} = require('clr-convert')
+const { hexToRgb } = require("clr-convert");
 
-conversion = hexToRgb('#7289DA')
-
-// logs the rgb value
-console.log(conversion)
+console.log(hexToRgb("#7288DA")); // Should output [114, 137, 218]
 ```
+
 ### Hex To HSL:
+
 ```js
-const {hexToHsl} = require('clr-convert')
+const { hexToHsl } = require("clr-convert");
 
-conversion = hexToHsl('#7289DA')
-
-// logs the hsl value
-console.log(conversion)
+console.log(hexToHsl("#7288DA")); // Should output [3.783333333333333, 0.58, 0.65]
 ```
 
 ### RGB To Hex:
+
 ```js
-const {rgbToHex} = require('clr-convert')
+const { rgbToHex } = require("clr-convert");
 
-conversion = rgbToHex(114,137,218)
-
-// logs the hex value
-console.log(conversion)
+console.log(rgbToHex(114, 136, 218)); // Should output #7288da
 ```
 
 ### RGB To HSL:
+
 ```js
-const {rgbToHsl} = require('clr-convert')
+const { rgbToHsl } = require("clr-convert");
 
-conversion = rgbToHsl(114,137,218)
-
-// logs the hsl value
-console.log(conversion)
+console.log(rgbToHsl(114, 137, 218)); // Should output [3.783333333333333, 0.58, 0.65]
 ```
 
 ### HSL to RGB:
+
 ```js
-const {hslToRgb} = require('clr-convert')
+const { hslToRgb } = require("clr-convert");
 
-conversion = hslToRgb(60,100,93.9)
-
-// logs the rgb value
-console.log(conversion)
+console.log(hslToRgb(3.783333333333333, 0.58, 0.65)); // Should output [114, 137, 218]
 ```
 
 ### HSL to Hex:
+
 ```js
-const {hslToHex} = require('clr-convert')
+const { hslToHex } = require("clr-convert");
 
-conversion = hslToHex(60, 100, 93.9)
-
-// logs the hex value
-console.log(conversion)
+console.log(hslToHex(3.783333333333333, 0.58, 0.65)); // Should output #7289da
 ```
