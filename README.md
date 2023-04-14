@@ -1,5 +1,7 @@
 # clr-convert
 
+![Tests](https://github.com/rutujak26/clr-convert/actions/workflows/tests.yml/badge.svg)
+
 Easy way to convert colors!
 
 Just install using `npm install clr-convert`
